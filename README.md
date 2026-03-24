@@ -1,231 +1,73 @@
-<div align="center">
+<p align="center"><b>Silicon to System: Solving Real-World Challenges</b></p>
 
-<img src="https://umsousercontent.com/lib_lnlnuhLgkYnZdkSC/hj0vk05j0kemus1i.png" alt="ChipFoundry Logo" height="140" />
+<p align="center">The University of Arizona</p>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Inter&size=44&duration=3000&pause=600&color=4C6EF5&center=true&vCenter=true&width=1100&lines=Caravel+User+Project+Template;OpenLane+%2B+ChipFoundry+Flow;Verification+and+Shuttle-Ready)](https://git.io/typing-svg)
+<p align="center">
+  <img src="docs/images/image1.png" alt="The University of Arizona Logo" width="200"/>
+</p>
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![ChipFoundry Marketplace](https://img.shields.io/badge/ChipFoundry-Marketplace-6E40C9.svg)](https://platform.chipfoundry.io/marketplace)
+<p align="center">Parsa Mirfasihi, Harish Kumar Dharavath, Muhtasim Alam Chowdhury, Dr. Soheil Salehi</p>
 
-</div>
+<p align="center">Department of Electrical and Computer Engineering, University of Arizona, Tucson, AZ, USA</p>
 
-## Table of Contents
-- [Overview](#overview)
-- [Documentation & Resources](#documentation--resources)
-- [Prerequisites](#prerequisites)
-- [Project Structure](#project-structure)
-- [Starting Your Project](#starting-your-project)
-- [Development Flow](#development-flow)
-- [GPIO Configuration](#gpio-configuration)
-- [Local Precheck](#local-precheck)
-- [Checklist for Shuttle Submission](#checklist-for-shuttle-submission)
-
-## Overview
-This repository contains a user project designed for integration into the **Caravel chip user space**. Use it as a template for integrating custom RTL with Caravel's system-on-chip (SoC) utilities, including:
-
-* **IO Pads:** Configurable general-purpose input/output.
-* **Logic Analyzer Probes:** 128 signals for non-intrusive hardware debugging.
-* **Wishbone Port:** A 32-bit standard bus interface for communication between the RISC-V management core and your custom hardware.
+<p align="center">{parsamirfasihi, harrydhara, mmc7, ssalehi} @arziona.edu</p>
 
 ---
 
-## Documentation & Resources
-For detailed hardware specifications and register maps, refer to the following official documents:
+<h2 align="center">Secure ReRAM-Inspired Compute-in-Memory Accelerator for Edge AI on Caravel SoC</h2>
 
-* **[Caravel Datasheet](https://github.com/chipfoundry/caravel/blob/main/docs/caravel_datasheet_2.pdf)**: Detailed electrical and physical specifications of the Caravel harness.
-* **[Caravel Technical Reference Manual (TRM)](https://github.com/chipfoundry/caravel/blob/main/docs/caravel_datasheet_2_register_TRM_r2.pdf)**: Complete register maps and programming guides for the management SoC.
-* **[ChipFoundry Marketplace](https://platform.chipfoundry.io/marketplace)**: Access additional IP blocks, EDA tools, and shuttle services.
+**Abstract**: This project proposes a secure, energy-efficient edge-AI accelerator based on ReRAM inspired compute-in-memory (CIM) architecture implemented within the Caravel SoC framework. Traditional neural network accelerators suffer from **high energy consumption** due to frequent **data movement between memory and compute units**. To address this, our design emulates ReRAM crossbar-based CIM by performing matrix-vector operations within a tightly integrated memory-compute structure, significantly reducing data transfer overhead.
 
----
+The system targets low-power industrial edge applications such as anomaly detection in sensor data. In addition to efficient inference, the design incorporates **hardware security features** including secure model loading, authenticated execution, and protected inference outputs. The accelerator will be implemented using the open-source SKY130 process and OpenLane flow, with full RTL, verification, and reproducible system integration including PCB and firmware support.
 
-## Prerequisites
-Ensure your environment meets the following requirements:
+This project demonstrates a practical pathway toward future ReRAM-based AI hardware while delivering a fully open-source, production-oriented edge intelligence platform.
 
-1. **Docker** [Linux](https://docs.docker.com/desktop/setup/install/linux/ubuntu/) | [Windows](https://docs.docker.com/desktop/setup/install/windows-install/) | [Mac](https://docs.docker.com/desktop/setup/install/mac-install/)
-2. **Python 3.8+** with `pip`.
-3. **Git**: For repository management.
+**Problem statement and motivation**: Edge AI systems in industrial and IoT environments are constrained by limited power, latency, and memory bandwidth. Frequent data movement between memory and compute units creates a major energy bottleneck, while deployed devices face risks such as model theft, tampering, and unauthorized access.
 
----
+As shown in Fig. 1, ReRAM-inspired compute-in-memory (CIM) architectures address these challenges by performing computation directly within memory, reducing data transfer and improving efficiency, while enabling secure and trustworthy edge-AI systems.
 
-## Project Structure
-A successful Caravel project requires a specific directory layout for the automated tools to function:
+<p align="center">
+  <img src="docs/images/image2.jpeg" alt="Figure 1. Edge AI Challenges, Memory Bottleneck, and ReRAM-CIM-Based Solution"/>
+</p>
+<p align="center"><em>Figure 1. Edge AI Challenges, Memory Bottleneck, and ReRAM-CIM-Based Solution</em></p>
 
-| Directory | Description |
-| :--- | :--- |
-| `openlane/` | Configuration files for hardening macros and the wrapper. |
-| `verilog/rtl/` | Source Verilog code for the project. |
-| `verilog/gl/` | Gate-level netlists (generated after hardening). |
-| `verilog/dv/` | Design Verification (cocotb and Verilog testbenches). |
-| `gds/` | Final GDSII binary files for fabrication. |
-| `lef/` | Library Exchange Format files for the macros. |
+**Proposed Solution**: We propose a compact AI inference accelerator that implements a ReRAM-inspired compute-in-memory architecture within the Caravel user project area. The design emulates crossbar-based matrix-vector multiplication by tightly coupling weight storage and computation, reducing memory access overhead and improving energy efficiency.
 
----
+The accelerator supports quantized neural network inference and is optimized for small-scale edge workloads such as anomaly detection and event classification. Unlike traditional accelerators, the proposed design incorporates CIM-style dataflow and models key non-idealities such as limited precision and variability.
 
-## Starting Your Project
+In addition, the system integrates hardware security mechanisms to ensure trusted model execution and secure data handling, making it suitable for deployment in industrial and edge-IoT environments.
 
-### 1. Repository Setup
-Create a new repository based on the `caravel_user_project` template and clone it to your local machine:
+<p align="center">
+  <img src="docs/images/image3.png" alt="Figure 2. Proposed ReRAM-CIM Accelerator with Integrated Security"/>
+</p>
+<p align="center"><em>Figure 2. Proposed ReRAM-CIM Accelerator with Integrated Security</em></p>
 
-```bash
-git clone <your-github-repo-URL>
-pip install chipfoundry-cli
-cd <project_name>
-```
+**System Architecture:**
 
-### 2. Project Initialization
+**ReRAM-CIM Design Approach**: The accelerator implements a memory-centric datapath where weight storage and computation are co-located, enabling parallel matrix-vector operations without explicit weight movement. Weights are encoded as quantized conductance values and processed using a crossbar-inspired computation engine.
 
-> [!IMPORTANT]
-> Run this first! Initialize your project configuration:
+To maintain compatibility with the SKY130 digital flow, ReRAM behavior is abstracted through a synthesizable model that captures key effects such as finite precision and variability. The design supports tiled execution for scalability and integrates efficiently within the Caravel user project area.
 
-```bash
-cf init
-```
+**Hardware Security Integration:**
 
-This creates `.cf/project.json` with project metadata. **This must be run before any other commands** (`cf setup`, `cf gpio-config`, `cf harden`, `cf precheck`, `cf verify`).
+**Implementation Plan**: The design will be implemented using the Caravel SoC harness and the OpenLane RTL-to-GDSII flow in the SKY130 process. The accelerator will be integrated as a user project macro and interfaced via the Wishbone bus.
 
-### 3. Environment Setup
-Install the ChipFoundry CLI tool and set up the local environment (PDKs, OpenLane, and Caravel lite):
+The implementation will include:
 
-```bash
-cf setup
-```
+- RTL design using Verilog
+- Functional verification using testbenches and simulation tools (Icarus Verilog, Verilator)
+- Physical design using OpenLane
+- Precheck and tapeout validation on the ChipFoundry platform
 
-The `cf setup` command installs:
+Verification and Evaluation: The design will be verified at multiple levels:
 
-- Caravel Lite: The Caravel SoC template.
-- Management Core: RISC-V management area required for simulation.
-- OpenLane: The RTL-to-GDS hardening flow.
-- PDK: Skywater 130nm process design kit.
-- Timing Scripts: For Static Timing Analysis (STA).
+- RTL Verification: Functional correctness of matrix operations, control logic, and security features.
+- Gate-Level Simulation (GLS): Post-synthesis validation of timing and functionality.
+- System Validation: End-to-end inference tests using real or synthetic datasets.
 
----
+Performance metrics will include:
 
-## Development Flow
-
-### Hardening the Design
-Hardening is the process of synthesizing your RTL and performing Place & Route (P&R) to create a GDSII layout.
-
-#### Macro Hardening
-Create a subdirectory for each custom macro under `openlane/` containing your `config.tcl`.
-
-```bash
-cf harden --list         # List detected configurations
-cf harden <macro_name>   # Harden a specific macro
-```
-
-#### Integration
-Instantiate your module(s) in `verilog/rtl/user_project_wrapper.v`.
-
-Update `openlane/user_project_wrapper/config.json` environment variables (`VERILOG_FILES_BLACKBOX`, `EXTRA_LEFS`, `EXTRA_GDS_FILES`) to point to your new macros.
-
-#### Wrapper Hardening
-Finalize the top-level user project:
-
-```bash
-cf harden user_project_wrapper
-```
-
-### Verification
-
-#### 1. Simulation
-We use cocotb for functional verification. Ensure your file lists are updated in `verilog/includes/`.
-
-**Configure GPIO settings first (required before verification):**
-
-```bash
-cf gpio-config
-```
-
-This interactive command will:
-- Configure all GPIO pins interactively
-- Automatically update `verilog/rtl/user_defines.v`
-- Automatically run `gen_gpio_defaults.py` to generate GPIO defaults for simulation
-
-GPIO configuration is required before running any verification tests.
-
-Run RTL Simulation:
-
-```bash
-cf verify <test_name>
-```
-
-Run Gate-Level (GL) Simulation:
-
-```bash
-cf verify <test_name> --sim gl
-```
-
-Run all tests:
-
-```bash
-cf verify --all
-```
-
-#### 2. Static Timing Analysis (STA)
-Verify that your design meets timing constraints using OpenSTA:
-
-```bash
-make extract-parasitics
-make create-spef-mapping
-make caravel-sta
-```
-
-> [!NOTE]
-> Run `make setup-timing-scripts` if you need to update the STA environment.
-
----
-
-## GPIO Configuration
-Configure the power-on default configuration for each GPIO using the interactive CLI tool.
-
-**Use the GPIO configuration command:**
-```bash
-cf gpio-config
-```
-
-This command will:
-- Present an interactive form for configuring GPIO pins 5-37 (GPIO 0-4 are fixed system pins)
-- Show available GPIO modes with descriptions
-- Allow selection by number, partial key, or full mode name
-- Save configuration to `.cf/project.json` (as hex values)
-- Automatically update `verilog/rtl/user_defines.v` with the new configuration
-- Automatically run `gen_gpio_defaults.py` to generate GPIO defaults for simulation (if Caravel is installed)
-
-**GPIO Pin Information:**
-- GPIO[0] to GPIO[4]: Preset system pins (do not change).
-- GPIO[5] to GPIO[37]: User-configurable pins.
-
-**Available GPIO Modes:**
-- Management modes: `mgmt_input_nopull`, `mgmt_input_pulldown`, `mgmt_input_pullup`, `mgmt_output`, `mgmt_bidirectional`, `mgmt_analog`
-- User modes: `user_input_nopull`, `user_input_pulldown`, `user_input_pullup`, `user_output`, `user_bidirectional`, `user_output_monitored`, `user_analog`
-
-> [!NOTE]
-> GPIO configuration is required before running `cf precheck` or `cf verify`. Invalid modes cannot be saved - all GPIOs must have valid configurations.
-
----
-
-## Local Precheck
-Before submitting your design for fabrication, run the local precheck to ensure it complies with all shuttle requirements:
-
-> [!IMPORTANT]
-> GPIO configuration is required before running precheck. Make sure you've run `cf gpio-config` first.
-
-```bash
-cf precheck
-```
-
-You can also run specific checks or disable LVS:
-
-```bash
-cf precheck --disable-lvs                    # Skip LVS check
-cf precheck --checks license --checks makefile  # Run specific checks only
-```
----
-
-## Checklist for Shuttle Submission
-- [ ] Top-level macro is named user_project_wrapper.
-- [ ] Full Chip Simulation passes for both RTL and GL.
-- [ ] Hardened Macros are LVS and DRC clean.
-- [ ] user_project_wrapper matches the required pin order/template.
-- [ ] Design passes the local cf precheck.
-- [ ] Documentation (this README) is updated with project-specific details.
+- inference latency
+- energy efficiency (estimated)
+- classification accuracy under quantization
+- robustness to modeled variability
