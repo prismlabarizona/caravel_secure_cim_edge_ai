@@ -42,7 +42,16 @@ In addition, the system integrates hardware security mechanisms to ensure truste
 </p>
 <p align="center"><em>Figure 2. Proposed ReRAM-CIM Accelerator with Integrated Security</em></p>
 
-**System Architecture:**
+**System Architecture:** The system architecture for the Secure ReRAM-Inspired Compute-in-Memory (CIM) Accelerator is built around the following key components and design approaches:
+
+- **Memory-Centric Datapath:** The architecture utilizes a design where weight storage and computation are tightly co-located. This allows for parallel matrix-vector operations without the need for explicit weight movement, directly addressing the energy bottleneck caused by frequent data transfers between memory and compute units.
+- **Crossbar-Inspired Computation Engine:** Within this Datapath, weights are encoded as quantized conductance values and processed using an engine inspired by crossbar arrays.
+- **Synthesizable ReRAM Abstraction:** To maintain compatibility with the SKY130 digital flow, the physical behavior of the ReRAM is abstracted into a synthesizable model. This model captures essential non-ideal hardware effects, such as finite precision and variability.
+- **Scalability and System Integration:** The architecture supports tiled execution to ensure scalability across different workloads. It is designed to be integrated efficiently as a user project macro within the Caravel SoC harness and communicates with the rest of the system via the Wishbone bus.
+- **Hardware Security Integration:** The system integrates hardware security mechanisms alongside the computation units to ensure trusted model execution and secure data handling in industrial and edge-IoT environments.
+- **Implementation Flow:** The overall system architecture is intended to be implemented using the OpenLane RTL-to-GDSII flow within the open-source SKY130 process.
+
+
 
 **ReRAM-CIM Design Approach**: The accelerator implements a memory-centric datapath where weight storage and computation are co-located, enabling parallel matrix-vector operations without explicit weight movement. Weights are encoded as quantized conductance values and processed using a crossbar-inspired computation engine.
 
