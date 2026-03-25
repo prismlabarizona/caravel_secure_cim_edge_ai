@@ -51,7 +51,10 @@ In addition, the system integrates hardware security mechanisms to ensure truste
 - **Hardware Security Integration:** The system integrates hardware security mechanisms alongside the computation units to ensure trusted model execution and secure data handling in industrial and edge-IoT environments.
 - **Implementation Flow:** The overall system architecture is intended to be implemented using the OpenLane RTL-to-GDSII flow within the open-source SKY130 process.
 
-
+<p align="center">
+  <img src="docs/images/Image (7).jpg" alt="Figure 3. Flowchart of Proposed ReRAM-Inspired CIM Accelerator System Architecture"/>
+</p>
+<p align="center"><em>Figure 3. Flowchart of Proposed ReRAM-Inspired CIM Accelerator System Architecture</em></p>
 
 **ReRAM-CIM Design Approach**: The accelerator implements a memory-centric datapath where weight storage and computation are co-located, enabling parallel matrix-vector operations without explicit weight movement. Weights are encoded as quantized conductance values and processed using a crossbar-inspired computation engine.
 
