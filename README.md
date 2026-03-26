@@ -6,15 +6,15 @@
   <img src="docs/images/image1.png" alt="The University of Arizona Logo" width="200"/>
 </p>
 
-<p align="center">Parsa Mirfasihi^1, Harish Kumar Dharavath, Muhtasim Alam Chowdhury, Kevin Immanuel Gubbi (Mentor), Dr. Soheil Salehi (Mentor)</p>
+<p align="center">Parsa Mirfasihi<sup>1</sup>, Harish Kumar Dharavath<sup>1</sup>, Muhtasim Alam Chowdhury<sup>1</sup>, Kevin Immanuel Gubbi (Mentor)<sup>2</sup>, Dr. Soheil Salehi (Mentor)<sup>1</sup></p>
 
-<p align="center">Department of Electrical and Computer Engineering, University of Arizona, Tucson, AZ, USA</p>
+<p align="center">Department of Electrical and Computer Engineering, University of Arizona, Tucson, AZ, USA<sup>1</sup></p>
 
-<p align="center">Department of Electrical and Computer Engineering, University of California, Davis, CA, USA</p>
+<p align="center">Department of Electrical and Computer Engineering, University of California, Davis, CA, USA<sup>2</sup></p>
 
-<p align="center">{parsamirfasihi, harrydhara, mmc7, ssalehi} @arziona.edu</p>
+<p align="center">{parsamirfasihi, harrydhara, mmc7, ssalehi} @arziona.edu<sup>1</sup></p>
 
-<p align="center">kgubbi@ucdavis.edu</p>
+<p align="center">kgubbi@ucdavis.edu<sup>2</sup></p>
 
 ---
 
