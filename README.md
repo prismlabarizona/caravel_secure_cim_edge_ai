@@ -10,7 +10,11 @@
 
 <p align="center">Department of Electrical and Computer Engineering, University of Arizona, Tucson, AZ, USA</p>
 
+<p align="center">Department of Electrical and Computer Engineering, University of California, Davis, CA, USA</p>
+
 <p align="center">{parsamirfasihi, harrydhara, mmc7, ssalehi} @arziona.edu</p>
+
+<p align="center">kgubbi@ucdavis.edu</p>
 
 ---
 
