@@ -6,7 +6,7 @@
   <img src="docs/images/image1.png" alt="The University of Arizona Logo" width="200"/>
 </p>
 
-<p align="center">Parsa Mirfasihi, Harish Kumar Dharavath, Muhtasim Alam Chowdhury, Kevin Immanuel Gubbi (Mentor), Dr. Soheil Salehi (Mentor)</p>
+<p align="center">Parsa Mirfasihi^1, Harish Kumar Dharavath, Muhtasim Alam Chowdhury, Kevin Immanuel Gubbi (Mentor), Dr. Soheil Salehi (Mentor)</p>
 
 <p align="center">Department of Electrical and Computer Engineering, University of Arizona, Tucson, AZ, USA</p>
 
